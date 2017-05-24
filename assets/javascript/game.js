@@ -14,29 +14,29 @@ var audio6 = new Audio('assets/sounds/paranoid.mp3');
 var audio7 = new Audio('assets/sounds/hallowed_be_thy_name.mp3');
 
 //variables for the images
-var img0 = document.createElement("img");
-img0.src = "assets/images/cemetary_gates.jpg";
+// var img0 = document.createElement("img");
+// img0.src = "assets/images/cemetary_gates.jpg";
 
-var img1 = document.createElement("img");
-img1.src = "assets/images/master_of_puppets.jpg";
+// var img1 = document.createElement("img");
+// img1.src = "assets/images/master_of_puppets.jpg";
 
-var img2 = document.createElement("img");
-img2.src = "assets/images/chaos_ad.jpg";
+// var img2 = document.createElement("img");
+// img2.src = "assets/images/chaos_ad.jpg";
 
-var img3 = document.createElement("img");
-img3.src = "assets/images/south_of_heaven.jpg";
+// var img3 = document.createElement("img");
+// img3.src = "assets/images/south_of_heaven.jpg";
 
-var img4 = document.createElement("img");
-img4.src = "assets/images/breaking_the_law.jpg";
+// var img4 = document.createElement("img");
+// img4.src = "assets/images/breaking_the_law.jpg";
 
-var img5 = document.createElement("img");
-img5.src = "assets/images/the_drapery_falls.jpg";
+// var img5 = document.createElement("img");
+// img5.src = "assets/images/the_drapery_falls.jpg";
 
-var img6 = document.createElement("img");
-img6.src = "assets/images/paranoid.jpg";
+// var img6 = document.createElement("img");
+// img6.src = "assets/images/paranoid.jpg";
 
-var img7 = document.createElement("img");
-img7.src = "assets/images/hallowed_be_thy_name.jpg";
+// var img7 = document.createElement("img");
+// img7.src = "assets/images/hallowed_be_thy_name.jpg";
 
 //Create an array of hangman content
 var songs = ["cemetary gates", "master of puppets", "chaos ad", "south of heaven", "breaking the law",
@@ -78,35 +78,35 @@ for(var k = 0; k < split.length; k++) {
 if (allLettersGuessed){
 	if (randomSong === songs[0]) {
 		audio0.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img0);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/cemetary_gates.jpg">';
 		win();
 	} else if (randomSong === songs[1]) {
 		audio1.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img1);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/master_of_puppets.jpg">';
 		win();
 	} else if (randomSong === songs[2]) {
 		audio2.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img2);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/chaos_ad.jpg">';
 		win(); 
 	} else if (randomSong === songs[3]) {
 		audio3.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img3);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/south_of_heaven.jpg">';
 		win();
 	} else if (randomSong === songs[4]) {
 		audio4.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img4);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/breaking_the_law.jpg">';
 		win();
 	} else if (randomSong === songs[5]) {
 		audio5.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img5);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/the_drapery_falls">';
 		win();
 	} else if (randomSong === songs[6]) {
 		audio6.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img6);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/paranoid.jpg">';
 		win();
 	} else if (randomSong === songs[7]) {
 		audio7.play();
-		document.querySelector('#letters').innerHTML = ('#letters').appendChild(img7);
+		document.querySelector('#letters').innerHTML = '<img src="assets/images/hallowed_be_thy_name.jpg">';
 		win();
 	}
 }
