@@ -1,0 +1,36 @@
+body {
+	font-family: 'Georgia', Times, 'Times New Roman', serif;
+	color: silver;
+}
+
+div.container {
+	width: 680px;
+	height: 350px;
+	background-image: url(../images/burning_guitar.jpg);
+	background-position: left center;
+	background-repeat: no-repeat;
+	border: 5px solid black;
+}
+	
+#board {
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+h1 {
+ font-size: 45px;
+ font-family: copperplate;
+ color: silver;
+ text-shadow: 6px 3px 5px rgba(162, 171, 173, 1);
+}
+
+
+#letters {
+	padding: 10px;
+	margin: 10px;
+}
+
+img {
+	width: 40%;
+	height: inherit;
+}
