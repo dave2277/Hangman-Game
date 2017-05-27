@@ -13,31 +13,6 @@ var audio5 = new Audio('assets/sounds/the_drapery_falls.mp3');
 var audio6 = new Audio('assets/sounds/paranoid.mp3');
 var audio7 = new Audio('assets/sounds/hallowed_be_thy_name.mp3');
 
-//variables for the images
-// var img0 = document.createElement("img");
-// img0.src = "assets/images/cemetary_gates.jpg";
-
-// var img1 = document.createElement("img");
-// img1.src = "assets/images/master_of_puppets.jpg";
-
-// var img2 = document.createElement("img");
-// img2.src = "assets/images/chaos_ad.jpg";
-
-// var img3 = document.createElement("img");
-// img3.src = "assets/images/south_of_heaven.jpg";
-
-// var img4 = document.createElement("img");
-// img4.src = "assets/images/breaking_the_law.jpg";
-
-// var img5 = document.createElement("img");
-// img5.src = "assets/images/the_drapery_falls.jpg";
-
-// var img6 = document.createElement("img");
-// img6.src = "assets/images/paranoid.jpg";
-
-// var img7 = document.createElement("img");
-// img7.src = "assets/images/hallowed_be_thy_name.jpg";
-
 //Create an array of hangman content
 var songs = ["cemetary gates", "master of puppets", "chaos ad", "south of heaven", "breaking the law",
 "the drapery falls", "paranoid", "hallowed be thy name"];
@@ -46,6 +21,7 @@ var songs = ["cemetary gates", "master of puppets", "chaos ad", "south of heaven
 var randomSong = songs[Math.floor(Math.random()
 	* songs.length)];
 
+console.log(randomSong);
 //Convert the string to an array of individual letters
 var split = randomSong.split('');
 
@@ -68,6 +44,17 @@ guessedLetters.push(userGuess);
 //Don't allow repitition of guessed letters
 var filter = guessedLetters.filter(function (value, index, array) { return array.indexOf(value) == index; });
 
+
+//Check for and display correctly guessed letters
+	for (var i = 0; i < randomSong.length; i++){
+		if (userGuess == randomSong[i]){
+			answerArray[i] = randomSong[i]
+		}	
+	}
+
+//Display underscores for words on the page and take out the commas
+document.querySelector('#letters').innerHTML = answerArray.join("");
+
 //For loop to find equal letters and increment wins if all letters are guessed
 var allLettersGuessed = true;
 for(var k = 0; k < split.length; k++) {
@@ -78,35 +65,35 @@ for(var k = 0; k < split.length; k++) {
 if (allLettersGuessed){
 	if (randomSong === songs[0]) {
 		audio0.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/cemetary_gates.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/cemetary_gates.jpg\'>";
 		win();
 	} else if (randomSong === songs[1]) {
 		audio1.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/master_of_puppets.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/master_of_puppets.jpg\'>";
 		win();
 	} else if (randomSong === songs[2]) {
 		audio2.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/chaos_ad.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/chaos_ad.jpg\'>";
 		win(); 
 	} else if (randomSong === songs[3]) {
 		audio3.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/south_of_heaven.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/south_of_heaven.jpg\'>";
 		win();
 	} else if (randomSong === songs[4]) {
 		audio4.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/breaking_the_law.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/breaking_the_law.jpg\'>";
 		win();
 	} else if (randomSong === songs[5]) {
 		audio5.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/the_drapery_falls">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/the_drapery_falls.jpg\'>";
 		win();
 	} else if (randomSong === songs[6]) {
 		audio6.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/paranoid.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/paranoid.jpg\'>";
 		win();
 	} else if (randomSong === songs[7]) {
 		audio7.play();
-		document.querySelector('#letters').innerHTML = '<img src="assets/images/hallowed_be_thy_name.jpg">';
+		document.querySelector('#letters').innerHTML = "<img src=\'assets/images/hallowed_be_thy_name.jpg\'>";
 		win();
 	}
 }
@@ -130,13 +117,6 @@ if(!match) {
 	}
 
 
-//Check for and display correctly guessed letters
-	for (var i = 0; i < randomSong.length; i++){
-		if (userGuess == randomSong[i]){
-			answerArray[i] = randomSong[i]
-		}	
-	}
-
 //Update the target div with real-time results
 	var html = "" +
 	"<p>Wins: " + wins + "</p>" +
@@ -144,9 +124,6 @@ if(!match) {
 	"<p>Letters chosen: " + filter + "</p>";
 
 	document.querySelector('#game').innerHTML = html;
-
-	//Display underscores for words on the page and take out the commas
-	document.querySelector('#letters').innerHTML = answerArray.join("");
 
 // If guesses left is 0, reset the game and display Game Over 
 	var over = "<h1>GAME OVER</h1>" +
