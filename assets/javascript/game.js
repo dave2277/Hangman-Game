@@ -21,9 +21,18 @@ var songs = ["cemetary gates", "master of puppets", "chaos ad", "south of heaven
 var randomSong = songs[Math.floor(Math.random()
 	* songs.length)];
 
-console.log(randomSong);
 //Convert the string to an array of individual letters
 var split = randomSong.split('');
+
+//Loop through the array, find the empty spaces, and take them out.  People will
+//piss and moan if they have to type spaces to get the correct answer
+
+for (var i = 0; i < split.length; i++)
+		var sifted = split.filter(function(element){
+			return element !== " "
+		});
+		console.log(sifted);
+	
 
 //Convert random selections to underscores
 var answerArray =[];
@@ -42,14 +51,20 @@ var userGuess = String.fromCharCode(event.keyCode).
 guessedLetters.push(userGuess);
 
 //Don't allow repitition of guessed letters
-var filter = guessedLetters.filter(function (value, index, array) { return array.indexOf(value) == index; });
+var filter = guessedLetters.filter(function (value, index, array) 
+	{ 
+		return array.indexOf(value) == index; 
+	});
 
-
-//Check for and display correctly guessed letters
+//Check for and display correctly guessed letters and pre-display spaces
 	for (var i = 0; i < randomSong.length; i++){
 		if (userGuess == randomSong[i]){
 			answerArray[i] = randomSong[i]
 		}	
+
+		if (randomSong[i] == " ") {
+			answerArray[i] = randomSong[i]
+		}
 	}
 
 //Display underscores for words on the page and take out the commas
@@ -57,8 +72,8 @@ document.querySelector('#letters').innerHTML = answerArray.join("");
 
 //For loop to find equal letters and increment wins if all letters are guessed
 var allLettersGuessed = true;
-for(var k = 0; k < split.length; k++) {
-	if (guessedLetters.indexOf(split[k]) === -1){
+for(var k = 0; k < sifted.length; k++) {
+	if (guessedLetters.indexOf(sifted[k]) === -1){
 		allLettersGuessed = false;
 	}
 }
@@ -105,6 +120,7 @@ function win() {
 	guessedLetters.length = 0;
 	filter.length = 0;
 	randomSong = songs[Math.floor(Math.random()* songs.length)];
+	//Can either sit and listen to the song or click a button to stop it, remove the image and play again
 }
 
 
